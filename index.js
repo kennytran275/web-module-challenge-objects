@@ -52,10 +52,18 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  
+  discount: function (discountType) {
+    if (discountType == "teacher" || discountType == "student") {
+      return burger.price - (burger.price * 0.25);
+    } else {
+      return burger.price - (burger.price * 0.1);
+    }
+  }
 }
 
-
+console.log(burger.discount("teacher"));
+console.log(burger.discount("student"));
+console.log(burger.discount("public"));
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
