@@ -58,9 +58,9 @@ export const burger = {
   category: "Lunch",
   discount: function (discountType) {
     if (discountType == "teacher" || discountType == "student") {
-      return burger.price - burger.price * 0.25;
+      return this.price - this.price * 0.25;
     } else {
-      return burger.price - burger.price * 0.1;
+      return this.price - this.price * 0.1;
     }
   },
 };
@@ -246,8 +246,15 @@ Use the carMaker function below to do the following:
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
 
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odometerValue) {
+  let car = {
+    odometer: odometerValue,
+    drive: function (miles) {
+      this.odometer += miles;
+      return this.odometer;
+    },
+  };
+  return car;
 }
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
